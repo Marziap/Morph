@@ -1,8 +1,17 @@
 //
 //  Model.swift
-//  Morph
+//  ProvaMusic
 //
-//  Created by Marzia Pirozzi on 20/10/23.
+//  Created by Marzia Pirozzi on 17/10/23.
 //
 
 import Foundation
+import SwiftUI
+
+struct Sounds: Identifiable{
+    var id: UUID = UUID()
+    var name: String = "sound name"
+    var audio: String = "audio"
+    var image: String = "waveform"
+    var color: Color = .blue
+}
