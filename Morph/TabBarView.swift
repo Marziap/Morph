@@ -14,10 +14,14 @@ struct TabLayoutView: View {
         
         TabView{
             LibraryView()
-                .tabItem {Label("Learners", systemImage: "person.fill")}
+                .tabItem {Label("Library", systemImage: "music.note.list")}
             MixingView()
-                .tabItem {Label("Teams", systemImage: "person.3.fill")}
+                .tabItem {Label("Mix", systemImage: "opticaldisc")}
         }
         
     }
+}
+
+#Preview {
+    TabLayoutView()
 }
