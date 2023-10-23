@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class Data: ObservableObject{
+class Datas: ObservableObject{
     @Published var sounds:[Sounds] = [
         Sounds(name: "Sound 1", color: .green),
         Sounds(name: "Sound 2", color: .yellow),
@@ -20,4 +20,4 @@ class Data: ObservableObject{
     @Published var mixSounds: [Sounds] = []
 }
 
-var data = Data()
+var datas = Datas()

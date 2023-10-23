@@ -7,16 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F5597D92AE2D3E600797537 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5597D82AE2D3E600797537 /* TabBarView.swift */; };
+		7F5597DB2AE2D6E300797537 /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5597DA2AE2D6E300797537 /* ButtonComponent.swift */; };
+		7F5597DF2AE2D7DA00797537 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5597DE2AE2D7DA00797537 /* LibraryView.swift */; };
+		7FDF6ED12AE2B9BD008204F0 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDF6ECB2AE2B9BD008204F0 /* ModalView.swift */; };
+		7FDF6ED22AE2B9BD008204F0 /* MorphEditScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDF6ECC2AE2B9BD008204F0 /* MorphEditScreen.swift */; };
+		7FDF6ED32AE2B9BD008204F0 /* PopUpBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDF6ECD2AE2B9BD008204F0 /* PopUpBar.swift */; };
+		7FDF6ED42AE2B9BD008204F0 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDF6ECE2AE2B9BD008204F0 /* Data.swift */; };
+		7FDF6ED52AE2B9BD008204F0 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDF6ECF2AE2B9BD008204F0 /* Model.swift */; };
+		7FDF6ED62AE2B9BD008204F0 /* MixingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDF6ED02AE2B9BD008204F0 /* MixingView.swift */; };
 		7FFFD32C2AE2AEE30016C09D /* MorphApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFFD32B2AE2AEE30016C09D /* MorphApp.swift */; };
-		7FFFD32E2AE2AEE30016C09D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFFD32D2AE2AEE30016C09D /* ContentView.swift */; };
 		7FFFD3302AE2AEE40016C09D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FFFD32F2AE2AEE40016C09D /* Assets.xcassets */; };
 		7FFFD3342AE2AEE40016C09D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FFFD3332AE2AEE40016C09D /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F5597D82AE2D3E600797537 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		7F5597DA2AE2D6E300797537 /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
+		7F5597DE2AE2D7DA00797537 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		7FDF6ECB2AE2B9BD008204F0 /* ModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
+		7FDF6ECC2AE2B9BD008204F0 /* MorphEditScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorphEditScreen.swift; sourceTree = "<group>"; };
+		7FDF6ECD2AE2B9BD008204F0 /* PopUpBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpBar.swift; sourceTree = "<group>"; };
+		7FDF6ECE2AE2B9BD008204F0 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		7FDF6ECF2AE2B9BD008204F0 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		7FDF6ED02AE2B9BD008204F0 /* MixingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MixingView.swift; sourceTree = "<group>"; };
 		7FFFD3282AE2AEE30016C09D /* Morph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Morph.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FFFD32B2AE2AEE30016C09D /* MorphApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorphApp.swift; sourceTree = "<group>"; };
-		7FFFD32D2AE2AEE30016C09D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7FFFD32F2AE2AEE40016C09D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7FFFD3312AE2AEE40016C09D /* Morph.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Morph.entitlements; sourceTree = "<group>"; };
 		7FFFD3332AE2AEE40016C09D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -52,8 +68,16 @@
 		7FFFD32A2AE2AEE30016C09D /* Morph */ = {
 			isa = PBXGroup;
 			children = (
+				7FDF6ECE2AE2B9BD008204F0 /* Data.swift */,
+				7FDF6ED02AE2B9BD008204F0 /* MixingView.swift */,
+				7FDF6ECB2AE2B9BD008204F0 /* ModalView.swift */,
+				7FDF6ECF2AE2B9BD008204F0 /* Model.swift */,
+				7FDF6ECC2AE2B9BD008204F0 /* MorphEditScreen.swift */,
+				7FDF6ECD2AE2B9BD008204F0 /* PopUpBar.swift */,
+				7F5597DA2AE2D6E300797537 /* ButtonComponent.swift */,
 				7FFFD32B2AE2AEE30016C09D /* MorphApp.swift */,
-				7FFFD32D2AE2AEE30016C09D /* ContentView.swift */,
+				7F5597DE2AE2D7DA00797537 /* LibraryView.swift */,
+				7F5597D82AE2D3E600797537 /* TabBarView.swift */,
 				7FFFD32F2AE2AEE40016C09D /* Assets.xcassets */,
 				7FFFD3312AE2AEE40016C09D /* Morph.entitlements */,
 				7FFFD3322AE2AEE40016C09D /* Preview Content */,
@@ -139,8 +163,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FFFD32E2AE2AEE30016C09D /* ContentView.swift in Sources */,
+				7FDF6ED52AE2B9BD008204F0 /* Model.swift in Sources */,
+				7F5597D92AE2D3E600797537 /* TabBarView.swift in Sources */,
+				7FDF6ED22AE2B9BD008204F0 /* MorphEditScreen.swift in Sources */,
+				7FDF6ED62AE2B9BD008204F0 /* MixingView.swift in Sources */,
+				7FDF6ED42AE2B9BD008204F0 /* Data.swift in Sources */,
+				7FDF6ED12AE2B9BD008204F0 /* ModalView.swift in Sources */,
 				7FFFD32C2AE2AEE30016C09D /* MorphApp.swift in Sources */,
+				7F5597DF2AE2D7DA00797537 /* LibraryView.swift in Sources */,
+				7F5597DB2AE2D6E300797537 /* ButtonComponent.swift in Sources */,
+				7FDF6ED32AE2B9BD008204F0 /* PopUpBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,7 +11,7 @@ import SwiftUI
 struct MorphApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabLayoutView()
         }
     }
 }

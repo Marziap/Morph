@@ -11,13 +11,14 @@ struct ModalView: View {
     var body: some View {
         VStack(alignment: .leading){
             Text("Your sounds")
-                .font(.largeTitle)                  .padding(.vertical, 50)
+                .font(.largeTitle)
+                .padding(.vertical, 50)
             
             ScrollView{
-                ForEach(data.sounds){sound in
+                ForEach(datas.sounds){sound in
                     Button {
-                        data.mixSounds.append(sound)
-                        print(data.mixSounds[0].name)
+                        datas.mixSounds.append(sound)
+                        print(datas.mixSounds[0].name)
                     } label: {
                         ZStack {
                             Rectangle()

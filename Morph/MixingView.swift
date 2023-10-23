@@ -11,11 +11,19 @@ import SwiftUI
 struct MixingView: View {
     @State private var sounds:[Sounds] = []
     @State private var showModal = false
+    @State private var showingAlert = false
+    @State private var name = ""
+    @State private var tags = ""
     
     func move(from source: IndexSet, to destination: Int) {
             sounds.move(fromOffsets: source, toOffset: destination)
-        data.mixSounds=sounds
+        datas.mixSounds=sounds
     }
+    
+    func submit() {
+        print("You entered \(name)")
+    }
+    
     
     var body: some View {
         VStack {
@@ -24,7 +32,7 @@ struct MixingView: View {
                 .padding(.bottom, 50)
             HStack{
                  
-                    if(!sounds.isEmpty){
+                if(!sounds.isEmpty){
                         Image(systemName: "play")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
@@ -92,7 +100,7 @@ struct MixingView: View {
 
             
             Button(action: {
-                //open alert to save sound
+                showingAlert=true
             }, label: {
                 Image(systemName: "square.and.arrow.down")
                     .resizable()
@@ -103,11 +111,18 @@ struct MixingView: View {
             .padding(.vertical, 50)
             
         }
-        .sheet(isPresented: $showModal, onDismiss: {
-            sounds=data.mixSounds
+        .sheet(isPresented: $showModal, onDismiss:{
+            sounds=datas.mixSounds
         }, content: {
             ModalView()
         })
+        .alert("Do you want to Keep it?", isPresented: $showingAlert) {
+            TextField("Name", text: $name)
+            TextField("Tags", text: $tags)
+            Button("Cancel", action: submit)
+            Button("Save", action: submit)
+                .foregroundStyle(Color.green)
+        }
     }
 }
 

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PopUpBar2: View {
+struct PopUpBar: View {
     @State private var showingAlert = false
     @State private var name = ""
     @State private var tags = ""
@@ -31,5 +31,5 @@ struct PopUpBar2: View {
 }
 
 #Preview {
-    PopUpBar2()
+    PopUpBar()
 }

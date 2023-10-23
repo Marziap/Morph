@@ -11,6 +11,7 @@ import SwiftUI
 struct Sounds: Identifiable{
     var id: UUID = UUID()
     var name: String = "sound name"
+    var tag: String = "tag"
     var audio: String = "audio"
     var image: String = "waveform"
     var color: Color = .blue
