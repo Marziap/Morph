@@ -21,7 +21,6 @@ struct PopUpBar: View {
             TextField("Tags", text: $tags)
             Button("Cancel", action: submit)
             Button("Save", action: submit)
-                .foregroundStyle(Color.green)
         }
     }
 
