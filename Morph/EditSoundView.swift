@@ -18,14 +18,11 @@ struct EditSoundView: View {
     @State private var soundPreview = 0.3
     
     @State private var showingAlert = false
-    @State private var name = ""
-    @State private var tags = ""
     
-    var music: Music
-    
+    var sound: Sounds
     
     func submit() {
-        print("You entered \(name)")
+        print("Submitted")
     }
     
     
@@ -132,9 +129,13 @@ struct EditSoundView: View {
             }) .padding(.top)
             
             
-        } .alert("Do you want to Keep it?", isPresented: $showingAlert) {
-            /*TextField("Name", text: $name)
-            TextField("Tags", text: $tags)*/
+        } 
+        .onAppear{
+            color=sound.color
+            soundName=sound.name
+            soundTag=sound.tag
+        }
+        .alert("Do you want to Keep it?", isPresented: $showingAlert) {
             Button("Cancel", action: submit)
             Button("Save", action: submit)
                 .foregroundStyle(Color.green)
@@ -142,10 +143,6 @@ struct EditSoundView: View {
             Spacer()
             
         }
+        
     }
-}
-
-
-#Preview {
-    EditSoundView()
 }

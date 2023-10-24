@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		548C7E4A2AE80A4F001F4399 /* RecordingFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548C7E492AE80A4F001F4399 /* RecordingFunc.swift */; };
+		7F3EC4372AE867E70057FA2B /* EditMusicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3EC4362AE867E70057FA2B /* EditMusicView.swift */; };
 		7F5597D92AE2D3E600797537 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5597D82AE2D3E600797537 /* TabBarView.swift */; };
-		7F5597DB2AE2D6E300797537 /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5597DA2AE2D6E300797537 /* ButtonComponent.swift */; };
 		7F5597DF2AE2D7DA00797537 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5597DE2AE2D7DA00797537 /* LibraryView.swift */; };
 		7FDF6ED12AE2B9BD008204F0 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDF6ECB2AE2B9BD008204F0 /* ModalView.swift */; };
-		7FDF6ED22AE2B9BD008204F0 /* MorphEditScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDF6ECC2AE2B9BD008204F0 /* MorphEditScreen.swift */; };
+		7FDF6ED22AE2B9BD008204F0 /* EditSoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDF6ECC2AE2B9BD008204F0 /* EditSoundView.swift */; };
 		7FDF6ED32AE2B9BD008204F0 /* PopUpBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDF6ECD2AE2B9BD008204F0 /* PopUpBar.swift */; };
 		7FDF6ED42AE2B9BD008204F0 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDF6ECE2AE2B9BD008204F0 /* Data.swift */; };
 		7FDF6ED52AE2B9BD008204F0 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDF6ECF2AE2B9BD008204F0 /* Model.swift */; };
@@ -24,11 +24,11 @@
 
 /* Begin PBXFileReference section */
 		548C7E492AE80A4F001F4399 /* RecordingFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingFunc.swift; sourceTree = "<group>"; };
+		7F3EC4362AE867E70057FA2B /* EditMusicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMusicView.swift; sourceTree = "<group>"; };
 		7F5597D82AE2D3E600797537 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
-		7F5597DA2AE2D6E300797537 /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
 		7F5597DE2AE2D7DA00797537 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		7FDF6ECB2AE2B9BD008204F0 /* ModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
-		7FDF6ECC2AE2B9BD008204F0 /* MorphEditScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorphEditScreen.swift; sourceTree = "<group>"; };
+		7FDF6ECC2AE2B9BD008204F0 /* EditSoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditSoundView.swift; sourceTree = "<group>"; };
 		7FDF6ECD2AE2B9BD008204F0 /* PopUpBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpBar.swift; sourceTree = "<group>"; };
 		7FDF6ECE2AE2B9BD008204F0 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		7FDF6ECF2AE2B9BD008204F0 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -75,9 +75,9 @@
 				548C7E492AE80A4F001F4399 /* RecordingFunc.swift */,
 				7FDF6ECB2AE2B9BD008204F0 /* ModalView.swift */,
 				7FDF6ECF2AE2B9BD008204F0 /* Model.swift */,
-				7FDF6ECC2AE2B9BD008204F0 /* MorphEditScreen.swift */,
+				7FDF6ECC2AE2B9BD008204F0 /* EditSoundView.swift */,
+				7F3EC4362AE867E70057FA2B /* EditMusicView.swift */,
 				7FDF6ECD2AE2B9BD008204F0 /* PopUpBar.swift */,
-				7F5597DA2AE2D6E300797537 /* ButtonComponent.swift */,
 				7FFFD32B2AE2AEE30016C09D /* MorphApp.swift */,
 				7F5597DE2AE2D7DA00797537 /* LibraryView.swift */,
 				7F5597D82AE2D3E600797537 /* TabBarView.swift */,
@@ -168,14 +168,14 @@
 			files = (
 				7FDF6ED52AE2B9BD008204F0 /* Model.swift in Sources */,
 				7F5597D92AE2D3E600797537 /* TabBarView.swift in Sources */,
-				7FDF6ED22AE2B9BD008204F0 /* MorphEditScreen.swift in Sources */,
+				7FDF6ED22AE2B9BD008204F0 /* EditSoundView.swift in Sources */,
 				7FDF6ED62AE2B9BD008204F0 /* MixingView.swift in Sources */,
+				7F3EC4372AE867E70057FA2B /* EditMusicView.swift in Sources */,
 				7FDF6ED42AE2B9BD008204F0 /* Data.swift in Sources */,
 				7FDF6ED12AE2B9BD008204F0 /* ModalView.swift in Sources */,
 				548C7E4A2AE80A4F001F4399 /* RecordingFunc.swift in Sources */,
 				7FFFD32C2AE2AEE30016C09D /* MorphApp.swift in Sources */,
 				7F5597DF2AE2D7DA00797537 /* LibraryView.swift in Sources */,
-				7F5597DB2AE2D6E300797537 /* ButtonComponent.swift in Sources */,
 				7FDF6ED32AE2B9BD008204F0 /* PopUpBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

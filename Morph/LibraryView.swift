@@ -58,7 +58,7 @@ struct LibraryView: View {
                                             .foregroundStyle(.gray)
                                     }
                                 }
-                                .swipeActions (edge:.trailing, allowsFullSwipe: false) {
+                                .swipeActions (edge:.trailing, allowsFullSwipe: true) {
                                     
                                     Button(role: .destructive) {
                                         print("Deleting sound")
@@ -66,10 +66,11 @@ struct LibraryView: View {
                                         Label("Delete", systemImage: "trash.fill")
                                     }
                                 }
-                                .swipeActions (edge:.leading, allowsFullSwipe: false) {
+                                .swipeActions (edge:.leading, allowsFullSwipe: true) {
                                     
-                                    NavigationLink (destination: MorphEditScreen()) {
+                                    NavigationLink (destination: EditSoundView(sound: sound)) {
                                         Button {
+                                            //datas.selectedSound=sound
                                             print("Edit screen")
                                         } label: {Label("Edit", systemImage: "slider.vertical.3")
                                                 .tint(.green)
@@ -145,7 +146,7 @@ struct LibraryView: View {
                                             .foregroundStyle(.gray)
                                     }
                                 }
-                                .swipeActions (edge:.trailing, allowsFullSwipe: false) {
+                                .swipeActions (edge:.trailing, allowsFullSwipe: true) {
                                     
                                     Button(role: .destructive) {
                                         print("Deleting music")
@@ -153,9 +154,9 @@ struct LibraryView: View {
                                         Label("Delete", systemImage: "trash.fill")
                                     }
                                 }
-                                .swipeActions (edge:.leading, allowsFullSwipe: false) {
+                                .swipeActions (edge:.leading, allowsFullSwipe: true) {
                                     
-                                    NavigationLink (destination: MorphEditScreen()) {
+                                    NavigationLink (destination: EditMusicView(music: music)) {
                                         Button {
                                             print("Edit screen")
                                         } label: {Label("Edit", systemImage: "slider.vertical.3")

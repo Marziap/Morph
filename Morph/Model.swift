@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct Sounds: Identifiable{
+struct Sounds: Identifiable, Equatable{
     var id: UUID = UUID()
     var name: String = "sound name"
     var tag: String = "tag"
@@ -24,7 +24,7 @@ struct Music: Identifiable{
     var name: String = "music name"
     var tag: String = "tag"
     var audio: String = "audio"
-    var image: String = "waveform"
+    var image: String = "music.quarternote.3"
     var color: Color = .blue
     var sounds: [Sounds] = []
 }

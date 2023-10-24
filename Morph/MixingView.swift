@@ -24,6 +24,7 @@ struct MixingView: View {
         print("You entered \(name)")
     }
     
+    //add delete sound from the list
     
     var body: some View {
         NavigationStack {
@@ -72,6 +73,18 @@ struct MixingView: View {
                                 }
                             }
                             Spacer()
+                        }
+                        .swipeActions (edge:.trailing, allowsFullSwipe: true) {
+                            
+                            Button(role: .destructive) {
+                                print("Deleting music")
+                                if let index = datas.mixSounds.firstIndex(of: sound) {
+                                    datas.mixSounds.remove(at: index)
+                                    sounds=datas.mixSounds
+                                }
+                            } label: {
+                                Label("Delete", systemImage: "trash.fill")
+                            }
                         }
                     }.onMove(perform: move)
                     
