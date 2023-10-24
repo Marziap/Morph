@@ -31,25 +31,24 @@ struct MixingView: View {
                 HStack{
                     
                     if(!sounds.isEmpty){
-                        Image(systemName: "play")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 30)
-                            .foregroundColor(.green)
-                            .padding(.horizontal)
+                        Button(action: {
+                            //play
+                        }, label: {
+                            Image(systemName: "play")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 30)
+                                .foregroundColor(.green)
+                                .padding(.horizontal)
+                        }).padding(.vertical)
+                        
                     }
                     
                     ForEach(sounds) { sound in
                         
-                        ZStack {
-                            /*Rectangle()
-                             .frame(height: 30)
-                             .foregroundColor(.black)*/
-                            
                             Rectangle()
                                 .frame(height: 30)
                                 .foregroundColor(sound.color)
-                        }
                         
                     }
                     

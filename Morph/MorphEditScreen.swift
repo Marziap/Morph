@@ -26,6 +26,8 @@ struct MorphEditScreen: View {
         print("You entered \(name)")
     }
     
+    //need to add color picker
+    
     var body: some View {
         
         VStack {

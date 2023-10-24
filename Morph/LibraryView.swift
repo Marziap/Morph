@@ -17,6 +17,7 @@ struct LibraryView: View {
     @State private var name = ""
     @State private var tags = ""
     
+    //implement shake for a random sound
     
     var body: some View  {
         
@@ -109,12 +110,12 @@ struct LibraryView: View {
                         }).padding(.horizontal, 20)
                              
                         
-                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                        /*Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                             Image (systemName: "paperclip")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 40)
-                        }) .padding(.horizontal, 20)
+                        }) .padding(.horizontal, 20)*/
                         
                         Spacer()
                         
