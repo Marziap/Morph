@@ -14,10 +14,7 @@ struct LibraryView: View {
     var body: some View  {
         
         NavigationStack {
-            VStack {Text("Sounds")
-                    .font(.title)
-                    .fontWeight(.bold)
-                //title of the page
+            VStack {
                 
                 Picker("in what category are you?", selection: $category) {
                     Text("Sounds").tag(0)
@@ -77,29 +74,34 @@ struct LibraryView: View {
                 
                 HStack {
                     
+                    Spacer()
+                    
                     Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                         Image (systemName: "mic")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 30)
-                            .padding()
-                    })
+                    }).padding(.horizontal, 20)
                          
+                    
                     Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                         Image (systemName: "paperclip")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 40)
-                            .padding(.horizontal)
-                    })
+                    }) .padding(.horizontal, 20)
                     
+                    Spacer()
                     
-                }
+                } .padding(.bottom,50)
+                
                 
                 
                 
             }
-       }
+            .navigationTitle("Sounds")
+        } 
+            
     }
 }
     
