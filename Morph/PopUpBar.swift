@@ -19,8 +19,8 @@ struct PopUpBar: View {
         .alert("Do you want to Keep it?", isPresented: $showingAlert) {
             TextField("Name", text: $name)
             TextField("Tags", text: $tags)
-            Button("Cancel", action: submit)
-            Button("Save", action: submit)
+            Button("Cancel", role: .cancel, action: submit)
+            Button("Save", role: .destructive, action: submit)
         }
     }
 
