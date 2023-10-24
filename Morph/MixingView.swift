@@ -29,26 +29,26 @@ struct MixingView: View {
         NavigationStack {
             VStack {
                 HStack{
-                     
+                    
                     if(!sounds.isEmpty){
-                            Image(systemName: "play")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 30)
-                                .foregroundColor(.green)
-                                .padding(.horizontal)
-                        }
+                        Image(systemName: "play")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 30)
+                            .foregroundColor(.green)
+                            .padding(.horizontal)
+                    }
                     
                     ForEach(sounds) { sound in
-                    
+                        
                         ZStack {
                             /*Rectangle()
-                                .frame(height: 30)
-                                .foregroundColor(.black)*/
+                             .frame(height: 30)
+                             .foregroundColor(.black)*/
                             
                             Rectangle()
                                 .frame(height: 30)
-                            .foregroundColor(sound.color)
+                                .foregroundColor(sound.color)
                         }
                         
                     }
@@ -71,11 +71,11 @@ struct MixingView: View {
                                     Text(sound.name)
                                         .foregroundColor(.black)
                                 }
-                        }
+                            }
                             Spacer()
                         }
                     }.onMove(perform: move)
-
+                    
                 }
                 .listStyle(PlainListStyle())
                 .frame(height: 300)
@@ -86,16 +86,16 @@ struct MixingView: View {
                 } label: {
                     ZStack {
                         Rectangle()
-                        .foregroundColor(.clear)
-                        .frame(width: 188, height: 30)
-                        .background(Color(red: 0.87, green: 0.87, blue: 0.87))
-                        .cornerRadius(10)
+                            .foregroundColor(.clear)
+                            .frame(width: 188, height: 30)
+                            .background(Color(red: 0.87, green: 0.87, blue: 0.87))
+                            .cornerRadius(10)
                         
                         Image(systemName: "plus")
                             .foregroundColor(.black)
                     }
                 }
-
+                
                 
                 Button(action: {
                     showingAlert=true
@@ -119,7 +119,8 @@ struct MixingView: View {
                 TextField("Tags", text: $tags)
                 Button("Cancel", action: submit)
                 Button("Save", action: submit)
-        }
+            }
+            
             .navigationTitle("Mixing")
         }
     }

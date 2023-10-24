@@ -64,7 +64,6 @@ struct MorphEditScreen: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 30)
-                        .foregroundColor(.blue)
                     .padding()
                 })
                 
@@ -136,7 +135,7 @@ struct MorphEditScreen: View {
                 showingAlert = true
                 
             }, label: {
-                Image (systemName: "square.and.arrow.down.fill")
+                Image (systemName: "square.and.arrow.down")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 50)
