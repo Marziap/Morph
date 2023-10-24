@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		548C7E4A2AE80A4F001F4399 /* RecordingFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548C7E492AE80A4F001F4399 /* RecordingFunc.swift */; };
 		7F5597D92AE2D3E600797537 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5597D82AE2D3E600797537 /* TabBarView.swift */; };
 		7F5597DB2AE2D6E300797537 /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5597DA2AE2D6E300797537 /* ButtonComponent.swift */; };
 		7F5597DF2AE2D7DA00797537 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5597DE2AE2D7DA00797537 /* LibraryView.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		548C7E492AE80A4F001F4399 /* RecordingFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingFunc.swift; sourceTree = "<group>"; };
 		7F5597D82AE2D3E600797537 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		7F5597DA2AE2D6E300797537 /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
 		7F5597DE2AE2D7DA00797537 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			children = (
 				7FDF6ECE2AE2B9BD008204F0 /* Data.swift */,
 				7FDF6ED02AE2B9BD008204F0 /* MixingView.swift */,
+				548C7E492AE80A4F001F4399 /* RecordingFunc.swift */,
 				7FDF6ECB2AE2B9BD008204F0 /* ModalView.swift */,
 				7FDF6ECF2AE2B9BD008204F0 /* Model.swift */,
 				7FDF6ECC2AE2B9BD008204F0 /* MorphEditScreen.swift */,
@@ -169,6 +172,7 @@
 				7FDF6ED62AE2B9BD008204F0 /* MixingView.swift in Sources */,
 				7FDF6ED42AE2B9BD008204F0 /* Data.swift in Sources */,
 				7FDF6ED12AE2B9BD008204F0 /* ModalView.swift in Sources */,
+				548C7E4A2AE80A4F001F4399 /* RecordingFunc.swift in Sources */,
 				7FFFD32C2AE2AEE30016C09D /* MorphApp.swift in Sources */,
 				7F5597DF2AE2D7DA00797537 /* LibraryView.swift in Sources */,
 				7F5597DB2AE2D6E300797537 /* ButtonComponent.swift in Sources */,

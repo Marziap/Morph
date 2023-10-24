@@ -15,6 +15,8 @@ struct Sounds: Identifiable{
     var audio: String = "audio"
     var image: String = "waveform"
     var color: Color = .blue
+    var isPlaying: Bool = false
+   // var fileUrl: URL = URL (string: "ciao")!
 }
 
 struct Music: Identifiable{

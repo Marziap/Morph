@@ -79,7 +79,11 @@ struct LibraryView: View {
                         
                         Spacer()
                         
-                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                        Button(action: {
+                            
+                            musicRecording.startRecording()
+                            
+                        }, label: {
                             Image (systemName: "mic")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
