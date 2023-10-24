@@ -16,3 +16,13 @@ struct Sounds: Identifiable{
     var image: String = "waveform"
     var color: Color = .blue
 }
+
+struct Music: Identifiable{
+    var id: UUID = UUID()
+    var name: String = "music name"
+    var tag: String = "tag"
+    var audio: String = "audio"
+    var image: String = "waveform"
+    var color: Color = .blue
+    var sounds: [Sounds] = []
+}
