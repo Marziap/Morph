@@ -27,7 +27,7 @@ struct MixingView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
+            ScrollView {
                 HStack{
                     
                     if(!sounds.isEmpty){

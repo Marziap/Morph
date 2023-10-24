@@ -11,6 +11,12 @@ struct LibraryView: View {
     @State private var category = 0
     @State private var title = "Sounds"
     //for the segmented picker
+    @State private var record = false
+    @State private var soundsList = datas.sounds
+   @State private var showPopUp = false
+    @State private var name = ""
+    @State private var tags = ""
+    
     
     var body: some View  {
         
@@ -81,7 +87,19 @@ struct LibraryView: View {
                         
                         Button(action: {
                             
-                            musicRecording.startRecording()
+                            record.toggle()
+                            
+                            if (record == true) {
+                                
+                                musicRecording.startRecording()
+                                
+                            } else {
+                                
+//                                musicRecording.stopRecording()
+//                                fetchAllRecording()
+//                                soundsList=datas.sounds
+                                showPopUp=true
+                            }
                             
                         }, label: {
                             Image (systemName: "mic")
@@ -155,6 +173,27 @@ struct LibraryView: View {
   
             }
             .navigationTitle(title)
+            .alert("Do you want to Keep it?", isPresented: $showPopUp) {
+                TextField("Name", text: $name)
+                TextField("Tags", text: $tags)
+//                Button("Cancel", action: submit)
+//                Button("Save", action: submit)
+                Button {
+                
+                } label: {
+                    Text ("Cancel")
+                }
+
+                Button {
+                    musicRecording.stopRecording()
+                    fetchAllRecording()
+                    soundsList=datas.sounds
+                    
+                } label: {
+                    Text ("Save")
+                }
+
+            }
         }
             
     }
