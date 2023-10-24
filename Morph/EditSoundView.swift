@@ -8,10 +8,9 @@
 import SwiftUI
 import PhotosUI
 
-struct MorphEditScreen: View {
+struct EditSoundView: View {
     
-    @State private var selectedItem: PhotosPickerItem? = nil
-    @State private var selectedImageData: Data? = nil
+    @State private var color = Color.green
     @State private var soundSpeed = 2
     @State private var soundPitch = 2
     @State private var soundName = ""
@@ -22,43 +21,32 @@ struct MorphEditScreen: View {
     @State private var name = ""
     @State private var tags = ""
     
+    var music: Music
+    
+    
     func submit() {
         print("You entered \(name)")
     }
     
-    //need to add color picker
     
     var body: some View {
         
-        VStack {
+        ScrollView {
             
-            PhotosPicker(
-                    selection: $selectedItem,
-                    matching: .images,
-                    photoLibrary: .shared()) {
-                        Image(systemName: "plus.app.fill")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 150)
-                            .foregroundStyle(Color.gray)
-                    }
-                    .onChange(of: selectedItem) { newItem in
-                        Task {
-                            // Retrive selected asset in the form of Data
-                            if let data = try? await newItem?.loadTransferable(type: Data.self) {
-                                selectedImageData = data
-                            }
-                        }
-                    }
-            
-            if let selectedImageData,
-               let uiImage = UIImage(data: selectedImageData) {
-                Image(uiImage: uiImage)
+            ZStack {
+                Image(systemName: "waveform")
                     .resizable()
-                    .scaledToFit()
-                    .frame(width: 250, height: 250)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 80)
+                .foregroundStyle(color)
+                
+                ColorPicker("", selection: $color, supportsOpacity: false)
+                    .offset(x: -70)
             }
             
+            
+            
+
             HStack {
                 
                 Button(action: {}, label: {
@@ -150,11 +138,14 @@ struct MorphEditScreen: View {
             Button("Cancel", action: submit)
             Button("Save", action: submit)
                 .foregroundStyle(Color.green)
+            
+            Spacer()
+            
         }
     }
 }
 
 
 #Preview {
-    MorphEditScreen()
+    EditSoundView()
 }
