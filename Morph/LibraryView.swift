@@ -18,6 +18,8 @@ struct LibraryView: View {
     @State private var tags = ""
     
     //implement shake for a random sound
+    //implement recording animation
+    //app crashes when trying to record
     
     var body: some View  {
         
