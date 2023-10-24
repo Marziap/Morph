@@ -14,11 +14,6 @@ class Datas: ObservableObject{
         Sounds(name: "Sound 2", color: .yellow),
         Sounds(name: "Sound 3", color: .red),
         Sounds(name: "Sound 4", color: .teal),
-        Sounds(name: "Sound 5", color: .orange),
-        Sounds(name: "Sound 1", color: .green),
-        Sounds(name: "Sound 2", color: .yellow),
-        Sounds(name: "Sound 3", color: .red),
-        Sounds(name: "Sound 4", color: .teal),
         Sounds(name: "Sound 5", color: .orange)
     ]
     
