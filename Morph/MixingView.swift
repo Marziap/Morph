@@ -19,12 +19,12 @@ struct MixingView: View {
             sounds.move(fromOffsets: source, toOffset: destination)
         datas.mixSounds=sounds
     }
-    
+    // funktion for drag and drop
     func submit() {
         print("You entered \(name)")
     }
-    
-    //add delete sound from the list
+    // save to device
+   
     
     var body: some View {
         NavigationStack {
@@ -44,6 +44,8 @@ struct MixingView: View {
                         }).padding(.vertical)
                         
                     }
+                    
+                    //mixing view with sounds in it
                     
                     ForEach(sounds) { sound in
                         
@@ -87,6 +89,7 @@ struct MixingView: View {
                             }
                         }
                     }.onMove(perform: move)
+                    // list of sounds that were added by user
                     
                 }
                 .listStyle(PlainListStyle())
@@ -107,7 +110,7 @@ struct MixingView: View {
                             .foregroundColor(.black)
                     }
                 }
-                
+                //add sounds to list
                 
                 Button(action: {
                     showingAlert=true
@@ -119,6 +122,7 @@ struct MixingView: View {
                         .foregroundColor(.green)
                 })
                 .padding(.vertical, 50)
+                //save sound/ trigger pop up
                 
             }
             .sheet(isPresented: $showModal, onDismiss:{
@@ -132,6 +136,7 @@ struct MixingView: View {
                 Button("Cancel", action: submit)
                 Button("Save", action: submit)
             }
+            //Save and name Popup
             
             .navigationTitle("Mixing")
         }

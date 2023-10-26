@@ -139,7 +139,7 @@ struct LibraryView: View {
                         Spacer()
                         
                     } .padding(.bottom,30)
-                       
+                       //Sounds View
                 }else{
                     List {
                         ForEach(datas.music) { music in
@@ -189,7 +189,7 @@ struct LibraryView: View {
                     .listStyle(.plain)
                     .padding()
                 }
-               
+               //Music View
   
             }
             .navigationTitle(title)
