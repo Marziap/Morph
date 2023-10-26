@@ -5,10 +5,13 @@
 //  Created by Giorgio Caiazzo on 24/10/23.
 //
 
+import SwiftUI
 import Foundation
 import AVFoundation
 
 class VoiceViewModel : NSObject , ObservableObject , AVAudioPlayerDelegate {
+    
+   
     
     var audioRecorder : AVAudioRecorder!
     var audioPlayer : AVAudioPlayer!
@@ -70,13 +73,15 @@ class VoiceViewModel : NSObject , ObservableObject , AVAudioPlayerDelegate {
 
 var musicRecording = VoiceViewModel ()
 
-func fetchAllRecording(){
-        
+func fetchAllRecording(name: String, tags: String){
+    
+    
     let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
     let directoryContents = try! FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil)
 
     for i in directoryContents {
-        datas.sounds.append(Sounds(/*fileURL : i, */isPlaying: false))
+        datas.sounds.append(Sounds(/*fileURL : i, */ name: name, tag: tags))
+        
     }
         
         

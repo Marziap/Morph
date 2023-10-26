@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		548C7E4A2AE80A4F001F4399 /* RecordingFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548C7E492AE80A4F001F4399 /* RecordingFunc.swift */; };
+		548DB7812AE9B55A001BB0FD /* RecordButtonAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DB7802AE9B55A001BB0FD /* RecordButtonAnimation.swift */; };
 		7F3EC4372AE867E70057FA2B /* EditMusicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3EC4362AE867E70057FA2B /* EditMusicView.swift */; };
 		7F5597D92AE2D3E600797537 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5597D82AE2D3E600797537 /* TabBarView.swift */; };
 		7F5597DF2AE2D7DA00797537 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5597DE2AE2D7DA00797537 /* LibraryView.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		548C7E492AE80A4F001F4399 /* RecordingFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingFunc.swift; sourceTree = "<group>"; };
+		548DB7802AE9B55A001BB0FD /* RecordButtonAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButtonAnimation.swift; sourceTree = "<group>"; };
 		7F3EC4362AE867E70057FA2B /* EditMusicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMusicView.swift; sourceTree = "<group>"; };
 		7F5597D82AE2D3E600797537 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		7F5597DE2AE2D7DA00797537 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				7FFFD32B2AE2AEE30016C09D /* MorphApp.swift */,
 				7F5597DE2AE2D7DA00797537 /* LibraryView.swift */,
 				7F5597D82AE2D3E600797537 /* TabBarView.swift */,
+				548DB7802AE9B55A001BB0FD /* RecordButtonAnimation.swift */,
 				7FFFD32F2AE2AEE40016C09D /* Assets.xcassets */,
 				7FFFD3312AE2AEE40016C09D /* Morph.entitlements */,
 				7FFFD3322AE2AEE40016C09D /* Preview Content */,
@@ -171,6 +174,7 @@
 				7FDF6ED22AE2B9BD008204F0 /* EditSoundView.swift in Sources */,
 				7FDF6ED62AE2B9BD008204F0 /* MixingView.swift in Sources */,
 				7F3EC4372AE867E70057FA2B /* EditMusicView.swift in Sources */,
+				548DB7812AE9B55A001BB0FD /* RecordButtonAnimation.swift in Sources */,
 				7FDF6ED42AE2B9BD008204F0 /* Data.swift in Sources */,
 				7FDF6ED12AE2B9BD008204F0 /* ModalView.swift in Sources */,
 				548C7E4A2AE80A4F001F4399 /* RecordingFunc.swift in Sources */,
