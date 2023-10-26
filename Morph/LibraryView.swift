@@ -2,7 +2,7 @@
 //  LibraryView.swift
 //  Morph
 //
-//  Created by Marzia Pirozzi on 20/10/23.
+//  Created by Katharina Brutscher on 20/10/23.
 //
 
 import SwiftUI
