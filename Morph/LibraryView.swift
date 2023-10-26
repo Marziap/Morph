@@ -16,10 +16,8 @@ struct LibraryView: View {
     @State private var showPopUp = false
     @State private var name = ""
     @State private var tags = ""
-    @State var currentDate = Date.now
-    @State var count = 0
-    
-    @State var dateTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State private var timeRemaining = 0
+    var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     //implement shake for a random sound
     //implement recording animation
@@ -100,20 +98,16 @@ struct LibraryView: View {
                             record.toggle()
                             
                             if (record == true) {
-                                
                                 musicRecording.startRecording()
-                                Text("\(currentDate.formatted(date: .numeric, time: .standard))")
-                                    .onReceive(dateTimer) { input in
-                                        currentDate = input
-                                    }
                                 
-                                
+
                             } else {
                                 
 //                                musicRecording.stopRecording()
 //                                fetchAllRecording()
 //                                soundsList=datas.sounds
                                 //reset timer
+                                timeRemaining=0
                                 showPopUp=true
                             }
                             
@@ -128,7 +122,12 @@ struct LibraryView: View {
                             
                         }).padding(.horizontal, 20)
                         
-                             
+                        if(record==true){
+                            Text("\(timeRemaining)")
+                                .onReceive(timer) { time in
+                                        timeRemaining += 1
+                                }
+                        }
                         
                         /*Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                             Image (systemName: "paperclip")
