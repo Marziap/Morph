@@ -127,7 +127,7 @@ struct LibraryView: View {
                                 }
                         }
                         
-                        /*Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                      /*  Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                             Image (systemName: "paperclip")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
@@ -170,13 +170,13 @@ struct LibraryView: View {
                                 }
                                 .swipeActions (edge:.leading, allowsFullSwipe: true) {
                                     
-                                   /* NavigationLink (destination: EditMusicView(music: music)) {
+                                   NavigationLink (destination: EditMusicView(music: music)) {
                                         Button {
                                             print("Edit screen")
                                         } label: {Label("Edit", systemImage: "slider.vertical.3")
                                                 .tint(.green)
                                         }
-                                    }*/
+                                    }
                                 }
                                 
                             }

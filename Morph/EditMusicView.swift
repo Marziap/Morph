@@ -17,15 +17,11 @@ struct EditMusicView: View {
     @State private var soundTag = ""
     @State private var soundPreview = 0.3
     @Environment(Datas.self) private var datas
-
-    
     @State private var showingAlert = false
+    @Environment(\.dismiss) private var dismiss
     
-    //@Bindable var music: Music
+    @Bindable var music: Music
     
-    func submit() {
-        print("Submitted")
-    }
     
     
     var body: some View {
@@ -131,19 +127,33 @@ struct EditMusicView: View {
             }) .padding(.top)
             
             
-        } 
-        .onAppear(perform: {
-//            color=music.color
-//            soundName=music.name
-//            soundTag=music.tag
-        })
+        }
+        .onAppear{
+            color=music.color
+            soundName=music.name
+            soundTag=music.tag
+        }
         .alert("Do you want to Keep it?", isPresented: $showingAlert) {
-            Button("Cancel", action: submit)
-            Button("Save", action: submit)
-                .foregroundStyle(Color.green)
+            
+            Button(action: {
+                dismiss()
+            }, label: {
+                Text("Cancel")
+            })
+            
+            Button {
+                music.name=soundName
+                music.tag=soundTag
+                music.color=color
+            } label: {
+                Text("Save")
+            }
+
+            
             
             Spacer()
             
         }
+        
     }
 }
