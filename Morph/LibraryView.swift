@@ -19,6 +19,20 @@ struct LibraryView: View {
     @State private var timeRemaining = 0
     var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
+    func fetchAllRecording(name: String, tags: String, color: Color){
+        
+        
+        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let directoryContents = try! FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil)
+
+        for i in directoryContents {
+            datas.sounds.append(Sound(/*fileURL : i, */ name: name, tag: tags, color: color))
+            
+        }
+            
+            
+    }
+    
     //implement shake for a random sound
     
     var body: some View  {
@@ -204,9 +218,7 @@ struct LibraryView: View {
 
                 Button {
                     musicRecording.stopRecording()
-                    musicRecording.fetchAllRecording(name: name, tags: tags, color: .blue)
-//                    soundsList=datas.sounds
-                    
+                    fetchAllRecording(name: name, tags: tags, color: .blue)
                 } label: {
                     Text ("Save")
                 }

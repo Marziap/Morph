@@ -70,19 +70,6 @@ class VoiceViewModel : NSObject , ObservableObject , AVAudioPlayerDelegate {
         isRecording = false
     }
     
-    func fetchAllRecording(name: String, tags: String, color: Color){
-        
-        
-        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let directoryContents = try! FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil)
-
-        for i in directoryContents {
-            datas.sounds.append(Sound(/*fileURL : i, */ name: name, tag: tags, color: color))
-            
-        }
-            
-            
-    }
     
 }
 
