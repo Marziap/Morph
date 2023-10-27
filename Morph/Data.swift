@@ -8,28 +8,27 @@
 import Foundation
 import SwiftUI
 
-class Datas: ObservableObject{
-    @Published var sounds:[Sounds] = [
-        Sounds(name: "Leaves", tag: "relax", color: .green),
-        Sounds(name: "Voice", tag: "Alex", color: .yellow),
-        Sounds(name: "Fire", tag: "relax", color: .red),
-        Sounds(name: "Rain", tag: "sad", color: .teal),
-        Sounds(name: "Dog", tag: "🐶", color: .orange)
+@Observable class Datas{
+     var sounds:[Sound] = [
+        Sound(name: "Leaves", tag: "relax", color: .green),
+        Sound(name: "Voice", tag: "Alex", color: .yellow),
+        Sound(name: "Fire", tag: "relax", color: .red),
+        Sound(name: "Rain", tag: "sad", color: .teal),
+        Sound(name: "Dog", tag: "🐶", color: .orange)
     ]
     
-    @Published var music:[Music] = [
-        Music(name: "First attempt", tag: "🥸", color: .red, sounds: [Sounds(name: "Sound 1", color: .green),
-                                    Sounds(name: "Sound 2", color: .yellow),
-                                    Sounds(name: "Sound 3", color: .red),
-                                    Sounds(name: "Sound 4", color: .teal)]),
-        Music(name: "Nature", tag: "autumn", color: .orange, sounds: [Sounds(name: "Sound 1", color: .green),
-                       Sounds(name: "Sound 2", color: .yellow),
-                       Sounds(name: "Sound 3", color: .red),
-                       Sounds(name: "Sound 4", color: .teal)])
+     var music:[Music] = [
+        Music(name: "First attempt", tag: "🥸", color: .red, sounds: [Sound(name: "Sound 1", tag: "ciao", color: .green),
+                                                                      Sound(name: "Sound 2", tag: "ciao", color: .yellow),
+                                    Sound(name: "Sound 3",tag: "ciao", color: .red),
+                                    Sound(name: "Sound 4",tag: "ciao", color: .teal)]),
+        Music(name: "Nature", tag: "autumn", color: .orange, sounds: [Sound(name: "Sound 1",tag: "ciao", color: .green),
+                       Sound(name: "Sound 2",tag: "ciao", color: .yellow),
+                       Sound(name: "Sound 3",tag: "ciao", color: .red),
+                       Sound(name: "Sound 4",tag: "ciao", color: .teal)])
     ]
     
-    @Published var mixSounds: [Sounds] = []
+     var mixSounds: [Sound] = []
     
 }
 
-var datas = Datas()

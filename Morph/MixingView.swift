@@ -9,9 +9,10 @@ import SwiftUI
 
 
 struct MixingView: View {
-    @State private var sounds:[Sounds] = []
+    @State private var sounds:[Sound] = []
     @State private var showModal = false
     @State private var showingAlert = false
+    @Environment(Datas.self) private var datas
     @State private var name = ""
     @State private var tags = ""
     
@@ -80,10 +81,10 @@ struct MixingView: View {
                             
                             Button(role: .destructive) {
                                 print("Deleting music")
-                                if let index = datas.mixSounds.firstIndex(of: sound) {
-                                    datas.mixSounds.remove(at: index)
-                                    sounds=datas.mixSounds
-                                }
+//                                if let index = datas.mixSounds.firstIndex(of: sound) {
+//                                    datas.mixSounds.remove(at: index)
+//                                    sounds=datas.mixSounds
+//                                }
                             } label: {
                                 Label("Delete", systemImage: "trash.fill")
                             }

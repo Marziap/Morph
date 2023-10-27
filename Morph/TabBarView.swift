@@ -10,6 +10,8 @@ import SwiftUI
 
 struct TabLayoutView: View {
     
+    @State private var datas = Datas()
+    
     var body: some View {
         
         TabView{
@@ -17,7 +19,7 @@ struct TabLayoutView: View {
                 .tabItem {Label("Library", systemImage: "music.note.list")}
             MixingView()
                 .tabItem {Label("Mix", systemImage: "opticaldisc")}
-        }
+        }.environment(datas)
         
     }
 }

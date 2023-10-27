@@ -12,7 +12,7 @@ struct LibraryView: View {
     @State private var title = "Sounds"
     //for the segmented picker
     @State private var record = false
-    @State private var soundsList = datas.sounds
+    @Environment(Datas.self) private var datas
     @State private var showPopUp = false
     @State private var name = ""
     @State private var tags = ""
@@ -20,8 +20,6 @@ struct LibraryView: View {
     var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     //implement shake for a random sound
-    //implement recording animation
-    //app crashes when trying to record
     
     var body: some View  {
         
@@ -172,13 +170,13 @@ struct LibraryView: View {
                                 }
                                 .swipeActions (edge:.leading, allowsFullSwipe: true) {
                                     
-                                    NavigationLink (destination: EditMusicView(music: music)) {
+                                   /* NavigationLink (destination: EditMusicView(music: music)) {
                                         Button {
                                             print("Edit screen")
                                         } label: {Label("Edit", systemImage: "slider.vertical.3")
                                                 .tint(.green)
                                         }
-                                    }
+                                    }*/
                                 }
                                 
                             }
@@ -206,8 +204,8 @@ struct LibraryView: View {
 
                 Button {
                     musicRecording.stopRecording()
-                    fetchAllRecording(name: name, tags: tags)
-                    soundsList=datas.sounds
+                    musicRecording.fetchAllRecording(name: name, tags: tags, color: .blue)
+//                    soundsList=datas.sounds
                     
                 } label: {
                     Text ("Save")

@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct Sounds: Identifiable, Equatable{
+@Observable class Sound: Identifiable{
     var id: UUID = UUID()
     var name: String = "sound name"
     var tag: String = "tag"
@@ -17,14 +17,36 @@ struct Sounds: Identifiable, Equatable{
     var color: Color = .blue
     var isPlaying: Bool = false
    // var fileUrl: URL = URL (string: "ciao")!
+    
+    init(name: String, tag: String, color: Color) {
+        //self.id = id
+        self.name = name
+        self.tag = tag
+        //self.audio = audio
+        //self.image = image
+        self.color = color
+        //self.isPlaying = isPlaying
+    }
+    
 }
 
-struct Music: Identifiable{
+@Observable class Music: Identifiable{
     var id: UUID = UUID()
     var name: String = "music name"
     var tag: String = "tag"
     var audio: String = "audio"
     var image: String = "music.quarternote.3"
     var color: Color = .blue
-    var sounds: [Sounds] = []
+    var sounds: [Sound] = []
+
+    
+    init(name: String, tag: String, color: Color, sounds: [Sound]) {
+        //self.id = id
+        self.name = name
+        self.tag = tag
+       // self.audio = audio
+        //self.image = image
+        self.color = color
+        self.sounds = sounds
+    }
 }

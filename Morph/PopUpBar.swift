@@ -11,6 +11,8 @@ struct PopUpBar: View {
     @State private var showingAlert = false
     @State private var name = ""
     @State private var tags = ""
+    @Environment(Datas.self) private var datas
+
 
     var body: some View {
         Button("Enter name") {

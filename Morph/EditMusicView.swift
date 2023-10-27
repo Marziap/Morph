@@ -16,10 +16,12 @@ struct EditMusicView: View {
     @State private var soundName = ""
     @State private var soundTag = ""
     @State private var soundPreview = 0.3
+    @Environment(Datas.self) private var datas
+
     
     @State private var showingAlert = false
     
-    var music: Music
+    //@Bindable var music: Music
     
     func submit() {
         print("Submitted")
@@ -131,9 +133,9 @@ struct EditMusicView: View {
             
         } 
         .onAppear(perform: {
-            color=music.color
-            soundName=music.name
-            soundTag=music.tag
+//            color=music.color
+//            soundName=music.name
+//            soundTag=music.tag
         })
         .alert("Do you want to Keep it?", isPresented: $showingAlert) {
             Button("Cancel", action: submit)

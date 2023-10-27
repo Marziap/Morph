@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct ModalView: View {
+    
+    @Environment(Datas.self) private var datas
+
+    
     var body: some View {
         VStack(alignment: .leading){
             Text("Your sounds")

@@ -17,8 +17,9 @@ class VoiceViewModel : NSObject , ObservableObject , AVAudioPlayerDelegate {
     var audioPlayer : AVAudioPlayer!
     
     @Published var isRecording : Bool = false
+    @Environment(Datas.self) private var datas
+    @Published var recordingsList = [Sound]()
     
-    @Published var recordingsList = [Sounds]()
     
     
     override init(){
@@ -69,20 +70,21 @@ class VoiceViewModel : NSObject , ObservableObject , AVAudioPlayerDelegate {
         isRecording = false
     }
     
+    func fetchAllRecording(name: String, tags: String, color: Color){
+        
+        
+        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let directoryContents = try! FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil)
+
+        for i in directoryContents {
+            datas.sounds.append(Sound(/*fileURL : i, */ name: name, tag: tags, color: color))
+            
+        }
+            
+            
+    }
+    
 }
 
 var musicRecording = VoiceViewModel ()
 
-func fetchAllRecording(name: String, tags: String){
-    
-    
-    let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-    let directoryContents = try! FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil)
-
-    for i in directoryContents {
-        datas.sounds.append(Sounds(/*fileURL : i, */ name: name, tag: tags))
-        
-    }
-        
-        
-}
