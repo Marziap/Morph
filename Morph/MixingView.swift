@@ -35,7 +35,7 @@ struct MixingView: View {
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 30)
-                                .foregroundColor(.green)
+                                .foregroundColor(datas.color)
                                 .padding(.horizontal)
                         }).padding(.vertical)
                         
@@ -128,7 +128,7 @@ struct MixingView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 40)
-                        .foregroundColor(.green)
+                        .foregroundColor(datas.color)
                 })
                 .padding(.vertical, 50)
                 //save sound/ trigger pop up
@@ -180,6 +180,6 @@ struct MixingView: View {
 
 
 
-#Preview {
-    MixingView()
-}
+//#Preview {
+//    MixingView()
+//}

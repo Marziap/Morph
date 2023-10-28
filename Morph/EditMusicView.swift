@@ -37,6 +37,7 @@ struct EditMusicView: View {
                 
                 ColorPicker("", selection: $color, supportsOpacity: false)
                     .offset(x: -70)
+                    .tint(datas.color)
             }
             
             

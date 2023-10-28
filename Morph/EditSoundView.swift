@@ -37,6 +37,7 @@ struct EditSoundView: View {
                 
                 ColorPicker("", selection: $color, supportsOpacity: false)
                     .offset(x: -70)
+                    .tint(datas.color)
             }
             
             
@@ -49,6 +50,7 @@ struct EditSoundView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 30)
+                        .foregroundStyle(datas.color)
                     .padding()
                 })
                 
@@ -124,10 +126,12 @@ struct EditSoundView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 50)
+                    .foregroundStyle(datas.color)
             }) .padding(.top)
             
             
-        } 
+        }.tint(datas.color)
+            //.accentColor(datas.color)
         .onAppear{
             color=sound.color
             soundName=sound.name
@@ -153,7 +157,7 @@ struct EditSoundView: View {
             
             Spacer()
             
-        }
+        }.tint(datas.color)
         
     }
 }

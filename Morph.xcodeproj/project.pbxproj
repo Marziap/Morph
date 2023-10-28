@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		548C7E4A2AE80A4F001F4399 /* RecordingFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548C7E492AE80A4F001F4399 /* RecordingFunc.swift */; };
 		548DB7812AE9B55A001BB0FD /* RecordButtonAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DB7802AE9B55A001BB0FD /* RecordButtonAnimation.swift */; };
+		7F0F22872AED98940049EADD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0F22862AED98940049EADD /* SettingsView.swift */; };
 		7F3EC4372AE867E70057FA2B /* EditMusicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3EC4362AE867E70057FA2B /* EditMusicView.swift */; };
 		7F5597D92AE2D3E600797537 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5597D82AE2D3E600797537 /* TabBarView.swift */; };
 		7F5597DF2AE2D7DA00797537 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5597DE2AE2D7DA00797537 /* LibraryView.swift */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		548C7E492AE80A4F001F4399 /* RecordingFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingFunc.swift; sourceTree = "<group>"; };
 		548DB7802AE9B55A001BB0FD /* RecordButtonAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButtonAnimation.swift; sourceTree = "<group>"; };
+		7F0F22862AED98940049EADD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		7F3EC4362AE867E70057FA2B /* EditMusicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMusicView.swift; sourceTree = "<group>"; };
 		7F5597D82AE2D3E600797537 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		7F5597DE2AE2D7DA00797537 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				7FDF6ECE2AE2B9BD008204F0 /* Data.swift */,
+				7F0F22862AED98940049EADD /* SettingsView.swift */,
 				7FDF6ED02AE2B9BD008204F0 /* MixingView.swift */,
 				548C7E492AE80A4F001F4399 /* RecordingFunc.swift */,
 				7FDF6ECB2AE2B9BD008204F0 /* ModalView.swift */,
@@ -181,6 +184,7 @@
 				7FFFD32C2AE2AEE30016C09D /* MorphApp.swift in Sources */,
 				7F5597DF2AE2D7DA00797537 /* LibraryView.swift in Sources */,
 				7FDF6ED32AE2B9BD008204F0 /* PopUpBar.swift in Sources */,
+				7F0F22872AED98940049EADD /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,7 +195,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "Green Violet Pink Blue Red";
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -252,7 +258,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "Green Violet Pink Blue Red";
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -304,8 +312,10 @@
 		7FFFD3382AE2AEE40016C09D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIcon Blue Violet Pink Red";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Morph/Morph.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -342,8 +352,10 @@
 		7FFFD3392AE2AEE40016C09D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIcon Blue Violet Pink Red";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Morph/Morph.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

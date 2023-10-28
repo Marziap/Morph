@@ -20,6 +20,7 @@ struct TabLayoutView: View {
             MixingView()
                 .tabItem {Label("Mix", systemImage: "opticaldisc")}
         }.environment(datas)
+            .tint(datas.color)
         
     }
 }

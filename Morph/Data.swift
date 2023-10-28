@@ -30,5 +30,7 @@ import SwiftUI
     
      var mixSounds: [Sound] = []
     
+    var color: Color = .green
+    
 }
 

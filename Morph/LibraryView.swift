@@ -12,6 +12,7 @@ struct LibraryView: View {
     @State private var title = "Sounds"
     //for the segmented picker
     @State private var record = false
+    @State private var showSettings = false
     @Environment(Datas.self) private var datas
     @State private var showPopUp = false
     @State private var name = ""
@@ -117,6 +118,7 @@ struct LibraryView: View {
                                        deleteRecordingFile(sound: sound)
                                     } label: {
                                         Label("Delete", systemImage: "trash.fill")
+                                            .tint(.red)
                                     }
                                 }
                                 .swipeActions (edge:.leading, allowsFullSwipe: true) {
@@ -126,7 +128,7 @@ struct LibraryView: View {
                                             //datas.selectedSound=sound
                                             print("Edit screen")
                                         } label: {Label("Edit", systemImage: "slider.vertical.3")
-                                                .tint(.green)
+                                                .tint(datas.color)
                                         }
                                     }
                                 }
@@ -160,7 +162,7 @@ struct LibraryView: View {
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 30)
-                                .foregroundStyle(record ? Color.red : Color.green)
+                                .foregroundStyle(record ? Color.red : datas.color)
                                 .scaleEffect(record ? 1.2 : 1.0)
                       
                             
@@ -232,11 +234,29 @@ struct LibraryView: View {
                //Music View
   
             }
+            .sheet(isPresented: $showSettings, content: {
+                SettingsView()
+            })
             .task {
 //                let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
 //                emptyDirectory(atPath: path)
             }
             .navigationTitle(title)
+            
+                        .toolbar {
+                            Button {
+                                showSettings=true
+                            } label: {
+                                Image(systemName: "gear")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 27)
+                                    .foregroundStyle(datas.color)
+            
+                            }
+            
+                        }
+            
             .alert("Do you want to Keep it?", isPresented: $showPopUp) {
                 TextField("Name", text: $name)
                 TextField("Tags", text: $tags)
@@ -253,7 +273,7 @@ struct LibraryView: View {
                     Text ("Save")
                 }
 
-            }
+            }.tint(datas.color)
         }
             
     }
