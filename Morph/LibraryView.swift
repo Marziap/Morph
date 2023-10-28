@@ -18,22 +18,57 @@ struct LibraryView: View {
     @State private var tags = ""
     @State private var timeRemaining = 0
     var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @Environment(\.dismiss) private var dismiss
+    var musicRecording = VoiceViewModel ()
     
-    func fetchAllRecording(name: String, tags: String, color: Color){
-        
-        
+    func fetchLastRecording(name: String, tags: String, color: Color){
         let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let directoryContents = try! FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil)
-
-        for i in directoryContents {
-            datas.sounds.append(Sound(/*fileURL : i, */ name: name, tag: tags, color: color))
-            
-        }
-            
-            
+        
+//        print("path: \(path)")
+//        print("directoryContent: \(directoryContents)")
+//        print("directoryContentLast: \(directoryContents.last)")
+        
+        //sort
+        let sortedContents = directoryContents.sorted { url1, url2 in
+                return url1.lastPathComponent < url2.lastPathComponent
+            }
+        
+        let i = sortedContents.last
+        datas.sounds.append(Sound(name : name, tag: tags, color: .blue, fileURL: i!))
+        
     }
     
-    //implement shake for a random sound
+    
+    func deleteRecordingFile(sound: Sound) {
+        let fileManager = FileManager.default
+
+        do {
+            print("fileURL da eliminare: \(sound.fileURL)")
+            try fileManager.removeItem(at: sound.fileURL)
+            datas.sounds.removeAll { $0.id == sound.id }
+            print("file deleted")
+        } catch {
+            print("Error deleting file: \(error)")
+            let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            let directoryContents = try! FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil)
+            print("directoryContent: \(directoryContents)")
+        }
+    }
+    
+    func emptyDirectory(atPath directoryPath: URL) {
+        let fileManager = FileManager.default
+        
+        do {
+            let contents = try fileManager.contentsOfDirectory(at: directoryPath, includingPropertiesForKeys: nil, options: [])
+            for item in contents {
+                try fileManager.removeItem(at: item)
+            }
+        } catch {
+            print("Error emptying directory: \(error)")
+        }
+    }
+
     
     var body: some View  {
         
@@ -72,10 +107,14 @@ struct LibraryView: View {
                                             .foregroundStyle(.gray)
                                     }
                                 }
+                                .onTapGesture {
+                                    musicRecording.startPlaying(url: sound.fileURL)
+                                }
                                 .swipeActions (edge:.trailing, allowsFullSwipe: true) {
                                     
                                     Button(role: .destructive) {
-                                        print("Deleting sound")
+                                       print("sound da eliminare \(sound.name)")
+                                       deleteRecordingFile(sound: sound)
                                     } label: {
                                         Label("Delete", systemImage: "trash.fill")
                                     }
@@ -111,14 +150,7 @@ struct LibraryView: View {
                             
                             if (record == true) {
                                 musicRecording.startRecording()
-                                
-
                             } else {
-                                
-//                                musicRecording.stopRecording()
-//                                fetchAllRecording()
-//                                soundsList=datas.sounds
-                                //reset timer
                                 timeRemaining=0
                                 showPopUp=true
                             }
@@ -140,13 +172,6 @@ struct LibraryView: View {
                                         timeRemaining += 1
                                 }
                         }
-                        
-                      /*  Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                            Image (systemName: "paperclip")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 40)
-                        }) .padding(.horizontal, 20)*/
                         
                         Spacer()
                         
@@ -173,6 +198,9 @@ struct LibraryView: View {
                                             .fontWeight(.light)
                                             .foregroundStyle(.gray)
                                     }
+                                }
+                                .onTapGesture {
+                                    musicRecording.startPlaying(url: music.fileURL)
                                 }
                                 .swipeActions (edge:.trailing, allowsFullSwipe: true) {
                                     
@@ -204,21 +232,23 @@ struct LibraryView: View {
                //Music View
   
             }
+            .task {
+//                let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+//                emptyDirectory(atPath: path)
+            }
             .navigationTitle(title)
             .alert("Do you want to Keep it?", isPresented: $showPopUp) {
                 TextField("Name", text: $name)
                 TextField("Tags", text: $tags)
-//                Button("Cancel", action: submit)
-//                Button("Save", action: submit)
                 Button {
-                
+                    dismiss()
                 } label: {
                     Text ("Cancel")
                 }
 
                 Button {
                     musicRecording.stopRecording()
-                    fetchAllRecording(name: name, tags: tags, color: .blue)
+                    fetchLastRecording(name: name, tags: tags, color: .blue)
                 } label: {
                     Text ("Save")
                 }
@@ -228,10 +258,3 @@ struct LibraryView: View {
             
     }
 }
-    
-    
-    
-    #Preview {
-        LibraryView()
-    }
-

@@ -18,7 +18,6 @@ class VoiceViewModel : NSObject , ObservableObject , AVAudioPlayerDelegate {
     
     @Published var isRecording : Bool = false
     @Environment(Datas.self) private var datas
-    @Published var recordingsList = [Sound]()
     
     
     
@@ -42,7 +41,7 @@ class VoiceViewModel : NSObject , ObservableObject , AVAudioPlayerDelegate {
         dateFormatter.dateFormat = "dd-MM-YY 'at' HH:mm:ss"
         let dateString = dateFormatter.string(from: Date())
 
-        let fileName = path.appendingPathComponent("CO-Voice : (dateString).m4a")
+        let fileName = path.appendingPathComponent("\(dateString).m4a")
         
         
         let settings = [
@@ -62,16 +61,64 @@ class VoiceViewModel : NSObject , ObservableObject , AVAudioPlayerDelegate {
         } catch {
             print("Failed to Setup the Recording")
         }
+        
+        
+        let directoryContents = try! FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil)
+        print("directoryContentStartRec: \(directoryContents), count: \(directoryContents.count)")
+        
     }
     
     
     func stopRecording(){
         audioRecorder.stop()
         isRecording = false
+        
+        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let directoryContents = try! FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil)
+
+        print("directoryContentStopRec: \(directoryContents), count: \(directoryContents.count)")
+        
+    }
+    
+    
+    func startPlaying(url : URL) {
+      
+        let playSession = AVAudioSession.sharedInstance()
+            
+        do {
+            try playSession.overrideOutputAudioPort(AVAudioSession.PortOverride.speaker)
+        } catch {
+            print("Playing failed in Device")
+        }
+            
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf : url)
+            audioPlayer.prepareToPlay()
+            audioPlayer.play()
+                
+            for i in 0..<datas.sounds.count{
+                if datas.sounds[i].fileURL == url{
+                    datas.sounds[i].isPlaying = true
+                }
+            }
+                
+        } catch {
+            print("Playing Failed")
+        }
+                
+    }
+
+    func stopPlaying(url : URL){
+      
+        audioPlayer.stop()
+      
+        for i in 0..<datas.sounds.count {
+            if datas.sounds[i].fileURL == url {
+                datas.sounds[i].isPlaying = false
+            }
+        }
+      
     }
     
     
 }
-
-var musicRecording = VoiceViewModel ()
-

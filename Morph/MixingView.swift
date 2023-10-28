@@ -9,22 +9,17 @@ import SwiftUI
 
 
 struct MixingView: View {
-    @State private var sounds:[Sound] = []
     @State private var showModal = false
     @State private var showingAlert = false
     @Environment(Datas.self) private var datas
     @State private var name = ""
     @State private var tags = ""
+    @Environment(\.dismiss) private var dismiss
     
     func move(from source: IndexSet, to destination: Int) {
-            sounds.move(fromOffsets: source, toOffset: destination)
-        datas.mixSounds=sounds
+        datas.mixSounds.move(fromOffsets: source, toOffset: destination)
     }
     // funktion for drag and drop
-    func submit() {
-        print("You entered \(name)")
-    }
-    // save to device
    
     
     var body: some View {
@@ -32,7 +27,7 @@ struct MixingView: View {
             ScrollView {
                 HStack{
                     
-                    if(!sounds.isEmpty){
+                    if(!datas.mixSounds.isEmpty){
                         Button(action: {
                             //play
                         }, label: {
@@ -48,45 +43,58 @@ struct MixingView: View {
                     
                     //mixing view with sounds in it
                     
-                    ForEach(sounds) { sound in
+                    ForEach(datas.mixSounds) { sound in
                         
+                        if(datas.sounds.contains(where: { aSound in
+                            aSound.id==sound.id
+                        })){
                             Rectangle()
                                 .frame(height: 30)
                                 .foregroundColor(sound.color)
-                        
+                        }
                     }
                     
                 }.padding(.horizontal)
                 
                 List{
-                    ForEach(sounds) { sound in
-                        HStack {
-                            Spacer()
-                            Button {
-                                print("sound played")
-                            } label: {
-                                ZStack {
-                                    Rectangle()
-                                        .foregroundColor(sound.color)
-                                        .frame(width: 188, height: 30)
-                                        .cornerRadius(10)
-                                    
-                                    Text(sound.name)
-                                        .foregroundColor(.black)
+                    ForEach(datas.mixSounds) { sound in
+                        
+                        if(datas.sounds.contains(where: { aSound in
+                            aSound.id==sound.id
+                        })){
+                            HStack {
+                                Spacer()
+                                Button {
+                                    print("sound played")
+                                } label: {
+                                    ZStack {
+                                        Rectangle()
+                                            .foregroundColor(sound.color)
+                                            .frame(width: 188, height: 30)
+                                            .cornerRadius(10)
+                                        
+                                        Text(sound.name)
+                                            .foregroundColor(.black)
+                                    }
                                 }
+                                Spacer()
                             }
-                            Spacer()
-                        }
-                        .swipeActions (edge:.trailing, allowsFullSwipe: true) {
-                            
-                            Button(role: .destructive) {
-                                print("Deleting music")
-//                                if let index = datas.mixSounds.firstIndex(of: sound) {
-//                                    datas.mixSounds.remove(at: index)
-//                                    sounds=datas.mixSounds
-//                                }
-                            } label: {
-                                Label("Delete", systemImage: "trash.fill")
+                            .swipeActions (edge:.trailing, allowsFullSwipe: true) {
+                                
+                                Button(role: .destructive) {
+                                    print("Deleting music")
+    //                                if let index = datas.mixSounds.firstIndex(of: sound) {
+    //                                    datas.mixSounds.remove(at: index)
+    //                                    sounds=datas.mixSounds
+    //                                }
+                                    
+                                    datas.mixSounds.removeAll { aSound in
+                                        aSound.id==sound.id
+                                    }
+                                    
+                                } label: {
+                                    Label("Delete", systemImage: "trash.fill")
+                                }
                             }
                         }
                     }.onMove(perform: move)
@@ -127,22 +135,49 @@ struct MixingView: View {
                 
             }
             .sheet(isPresented: $showModal, onDismiss:{
-                sounds=datas.mixSounds
+                
             }, content: {
                 ModalView()
             })
             .alert("Do you want to Keep it?", isPresented: $showingAlert) {
                 TextField("Name", text: $name)
                 TextField("Tags", text: $tags)
-                Button("Cancel", action: submit)
-                Button("Save", action: submit)
+                
+                Button {
+                    dismiss()
+                } label: {
+                    Text("Cancel")
+                }
+                
+                Button {
+                    datas.music.append(Music(name: name, tag: tags, color: .blue, fileURL: URL(string: "Ciao")!, sounds: datas.mixSounds))
+                    
+                    print("music: \(datas.music[0].sounds)")
+                    
+                } label: {
+                    Text("Save")
+                }
+
             }
             //Save and name Popup
             
             .navigationTitle("Mixing")
+            //            .toolbar {
+            //                Button {
+            //                    showModal=true
+            //                } label: {
+            //                    Image(systemName: "plus")
+            //                        .resizable()
+            //                        .aspectRatio(contentMode: .fit)
+            //                        .frame(width: 27)
+            //
+            //                }
+            //
+            //            }
+                    }
         }
     }
-}
+
 
 
 #Preview {
