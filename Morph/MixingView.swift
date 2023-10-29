@@ -83,10 +83,6 @@ struct MixingView: View {
                                 
                                 Button(role: .destructive) {
                                     print("Deleting music")
-    //                                if let index = datas.mixSounds.firstIndex(of: sound) {
-    //                                    datas.mixSounds.remove(at: index)
-    //                                    sounds=datas.mixSounds
-    //                                }
                                     
                                     datas.mixSounds.removeAll { aSound in
                                         aSound.id==sound.id
@@ -94,6 +90,7 @@ struct MixingView: View {
                                     
                                 } label: {
                                     Label("Delete", systemImage: "trash.fill")
+                                        .tint(.red)
                                 }
                             }
                         }
@@ -153,6 +150,8 @@ struct MixingView: View {
                     datas.music.append(Music(name: name, tag: tags, color: .blue, fileURL: URL(string: "Ciao")!, sounds: datas.mixSounds))
                     
                     print("music: \(datas.music[0].sounds)")
+                    name=""
+                    tags=""
                     
                 } label: {
                     Text("Save")

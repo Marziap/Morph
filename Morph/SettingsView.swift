@@ -9,16 +9,31 @@ import SwiftUI
 
 struct SettingsView: View {
     @AppStorage("active_icon") var activeAppIcon: String = "AppIcon"
+    
+    @State private var settings = SettingsData()
+    
     @Environment(Datas.self) private var datas
+    
+    
+    func colorToString (color: Color)-> String {
+        
+        let uiColor = UIColor(color)
+        var red: CGFloat = 0
+        var green: CGFloat = 0
+        var blue: CGFloat = 0
+        var alpha: CGFloat = 0
+        uiColor.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        
+        return "\(red),\(green),\(blue),\(alpha)"
+    }
+    
     @State private var color = Color.green
+    
     var body: some View {
         NavigationStack{
             
             
             VStack (alignment: .leading){
-                
-                
-                
                 HStack {
                     
                     Text("App Icon Color")
@@ -52,25 +67,25 @@ struct SettingsView: View {
                     
                     ColorPicker("", selection: $color, supportsOpacity: false)
                         .padding(.trailing, 40)
-                        .tint(datas.color)
+                        .accentColor(datas.color)
                     
                     
                 }.onChange(of: color) {
+                    settings.selectedColor = colorToString(color: color)
                     datas.color=color
                 }
                 
                 
-            }.navigationTitle("Customize aspect")
-                .padding(.horizontal, 40)
+            }
+            .navigationTitle("Customize aspect")
+            .padding(.horizontal, 40)
             
-        }
-        .onChange(of: activeAppIcon){newValue in
-            print(activeAppIcon)
-            UIApplication.shared.setAlternateIconName(newValue)
+            .onChange(of: activeAppIcon){newValue in
+                UIApplication.shared.setAlternateIconName(newValue)
+            }
         }
     }
 }
-
 //#Preview {
 //    SettingsView()
 //}

@@ -26,10 +26,6 @@ struct LibraryView: View {
         let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let directoryContents = try! FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil)
         
-//        print("path: \(path)")
-//        print("directoryContent: \(directoryContents)")
-//        print("directoryContentLast: \(directoryContents.last)")
-        
         //sort
         let sortedContents = directoryContents.sorted { url1, url2 in
                 return url1.lastPathComponent < url2.lastPathComponent
@@ -210,6 +206,7 @@ struct LibraryView: View {
                                         print("Deleting music")
                                     } label: {
                                         Label("Delete", systemImage: "trash.fill")
+                                            .tint(.red)
                                     }
                                 }
                                 .swipeActions (edge:.leading, allowsFullSwipe: true) {
@@ -218,7 +215,7 @@ struct LibraryView: View {
                                         Button {
                                             print("Edit screen")
                                         } label: {Label("Edit", systemImage: "slider.vertical.3")
-                                                .tint(.green)
+                                                .tint(datas.color)
                                         }
                                     }
                                 }
@@ -269,6 +266,8 @@ struct LibraryView: View {
                 Button {
                     musicRecording.stopRecording()
                     fetchLastRecording(name: name, tags: tags, color: .blue)
+                    name=""
+                    tags=""
                 } label: {
                     Text ("Save")
                 }

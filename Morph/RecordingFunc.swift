@@ -17,7 +17,7 @@ class VoiceViewModel : NSObject , ObservableObject , AVAudioPlayerDelegate {
     var audioPlayer : AVAudioPlayer!
     
     @Published var isRecording : Bool = false
-    @Environment(Datas.self) private var datas
+    @State private var datas = Datas()
     
     
     

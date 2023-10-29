@@ -140,7 +140,8 @@ struct EditMusicView: View {
                 dismiss()
             }, label: {
                 Text("Cancel")
-            })
+                    .tint(datas.color)
+            }).tint(datas.color)
             
             Button {
                 music.name=soundName
@@ -148,13 +149,14 @@ struct EditMusicView: View {
                 music.color=color
             } label: {
                 Text("Save")
-            }
+                    .tint(datas.color)
+            }.tint(datas.color)
 
             
             
             Spacer()
             
-        }
+        }.tint(datas.color)
         
     }
 }

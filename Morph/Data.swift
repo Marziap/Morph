@@ -34,3 +34,7 @@ import SwiftUI
     
 }
 
+class SettingsData: ObservableObject {
+    @AppStorage("selectedColor") var selectedColor: String = ""
+}
+
