@@ -21,6 +21,9 @@ struct LibraryView: View {
     var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @Environment(\.dismiss) private var dismiss
     var musicRecording = VoiceViewModel ()
+    var animation: Animation {
+        return .linear(duration: 0.5).repeatForever()
+    }
     
     func fetchLastRecording(name: String, tags: String, color: Color){
         let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
@@ -92,7 +95,24 @@ struct LibraryView: View {
                                         .aspectRatio(contentMode: .fit)
                                         .frame(height: 40)
                                         .foregroundStyle(sound.color)
-                                        .padding(.trailing)
+                                        .padding(.trailing) 
+                                    
+                                  /*  HStack {
+                                        
+                                        bar (low:0.4)
+                                            .animation(animation.speed(1.4), value: musicRecording.audioPlayer.isPlaying)
+                                        bar (low:0.3)
+                                            .animation(animation.speed(1.2), value: musicRecording.audioPlayer.isPlaying)
+                                        bar (low:0.7)
+                                            .animation(animation.speed(1.0), value: musicRecording.audioPlayer.isPlaying)
+                                        bar (low:0.5)
+                                            .animation(animation.speed(1.5), value: musicRecording.audioPlayer.isPlaying)
+                                        
+                                        
+                                    } .frame(width:40)
+                                        .offset(x:-10) */
+                                        
+                                    
                                     VStack (alignment: .leading)
                                     {
                                         Text(sound.name)
@@ -276,4 +296,12 @@ struct LibraryView: View {
         }
             
     }
+    
+   /* func bar(low: CGFloat = 0.0, high: CGFloat = 1.0) -> some View {
+        RoundedRectangle(cornerRadius: 3)
+            .fill(.indigo.gradient)
+            .frame(height: (musicRecording.audioPlayer.isPlaying ? high : low) * 40)
+            .frame(height: 40, alignment: .center)
+    } */
+    
 }

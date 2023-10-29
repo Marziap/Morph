@@ -33,7 +33,7 @@ struct SettingsView: View {
         NavigationStack{
             
             
-            VStack (alignment: .leading){
+            List {
                 HStack {
                     
                     Text("App Icon Color")
@@ -77,13 +77,14 @@ struct SettingsView: View {
                 
                 
             }
-            .navigationTitle("Customize aspect")
-            .padding(.horizontal, 40)
+            .navigationTitle("Aspect settings")
+            //.padding(.horizontal, 40)
             
             .onChange(of: activeAppIcon){newValue in
                 UIApplication.shared.setAlternateIconName(newValue)
             }
         }
+        .listStyle(.plain)
     }
 }
 //#Preview {
