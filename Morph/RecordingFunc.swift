@@ -95,7 +95,6 @@ class VoiceViewModel : NSObject , ObservableObject , AVAudioPlayerDelegate {
             audioPlayer = try AVAudioPlayer(contentsOf : url)
             audioPlayer.prepareToPlay()
             audioPlayer.play()
-                
             for i in 0..<datas.sounds.count{
                 if datas.sounds[i].fileURL == url{
                     datas.sounds[i].isPlaying = true

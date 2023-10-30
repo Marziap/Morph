@@ -33,7 +33,3 @@ struct TabLayoutView: View {
         
     }
 }
-
-#Preview {
-    TabLayoutView()
-}

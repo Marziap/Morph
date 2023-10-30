@@ -15,6 +15,7 @@ struct MixingView: View {
     @State private var name = ""
     @State private var tags = ""
     @Environment(\.dismiss) private var dismiss
+    var musicRecording = VoiceViewModel ()
     
     func move(from source: IndexSet, to destination: Int) {
         datas.mixSounds.move(fromOffsets: source, toOffset: destination)
@@ -29,7 +30,7 @@ struct MixingView: View {
                     
                     if(!datas.mixSounds.isEmpty){
                         Button(action: {
-                            //play
+
                         }, label: {
                             Image(systemName: "play")
                                 .resizable()
