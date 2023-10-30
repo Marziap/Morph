@@ -68,7 +68,8 @@ struct SettingsView: View {
                     ColorPicker("", selection: $color, supportsOpacity: false)
                         .padding(.trailing, 40)
                         .accentColor(datas.color)
-                    
+                        
+                                        
                     
                 }.onChange(of: color) {
                     settings.selectedColor = colorToString(color: color)
@@ -87,6 +88,4 @@ struct SettingsView: View {
         .listStyle(.plain)
     }
 }
-//#Preview {
-//    SettingsView()
-//}
+
