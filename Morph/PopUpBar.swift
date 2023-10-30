@@ -30,7 +30,3 @@ struct PopUpBar: View {
         print("You entered \(name)")
     }
 }
-
-#Preview {
-    PopUpBar()
-}

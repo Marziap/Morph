@@ -41,7 +41,3 @@ struct ModalView: View {
         
     }
 }
-
-#Preview {
-    ModalView()
-}
