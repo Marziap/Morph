@@ -17,7 +17,7 @@ struct LibraryView: View {
     @State private var showPopUp = false
     @State private var name = ""
     @State private var tags = ""
-    @State private var timeRemaining = 0
+    @State private var timeRemaining = 0.00
     var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @Environment(\.dismiss) private var dismiss
     var musicRecording = VoiceViewModel ()
@@ -155,10 +155,7 @@ struct LibraryView: View {
                     .listStyle(.plain)
                     .padding()
                     
-                    HStack {
-                        
-                        Spacer()
-                        
+                    VStack {
                         Button(action: {
                             
                             record.toggle()
@@ -182,15 +179,15 @@ struct LibraryView: View {
                         }).padding(.horizontal, 20)
                         
                         if(record==true){
-                            Text("\(timeRemaining)")
+                            Text("\(timeRemaining, specifier: "%.2f")")
+                                .padding(.top)
                                 .onReceive(timer) { time in
-                                        timeRemaining += 1
+                                    timeRemaining += 0.01
                                 }
                         }
                         
-                        Spacer()
                         
-                    } .padding(.bottom,30)
+                    }.padding(.bottom,30)
                        //Sounds View
                 }else{
                     List {
