@@ -96,7 +96,7 @@ struct LibraryView: View {
                                   Image(systemName: sound.image)
                                         .resizable()
                                         .aspectRatio(contentMode: .fit)
-                                        .frame(height: sound.isPlaying ? 50 : 40)
+                                        .frame(height:/* sound.isPlaying ? 50 : */40)
                                         .foregroundStyle(sound.color)
                                         .padding(.trailing)
                                 
@@ -105,19 +105,22 @@ struct LibraryView: View {
                                     {
                                         Text(sound.name)
                                             .font(.headline)
-                                            .fontWeight(sound.isPlaying ? .bold : .medium)
+                                            .fontWeight(/*sound.isPlaying ? .bold : */.medium)
                                         Text(sound.tag)
                                             .font(.subheadline)
-                                            .fontWeight(sound.isPlaying ? .bold : .light)
+                                            .fontWeight(/*sound.isPlaying ? .bold : */.light)
                                             .foregroundStyle(.gray)
                                     }
                                     
+                                    Image (systemName: "wave.3.right")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width:10)
+                                        .foregroundStyle(sound.color)
+                                        .opacity(sound.isPlaying ? 100 : 0)
+                                        .offset(x:210)
+                                       
                                     
-                                    if (sound.isPlaying==true) {
-                                        
-                                        
-                                        
-                                    }
                                     
                                 }
                                 .onTapGesture {
