@@ -93,27 +93,16 @@ struct LibraryView: View {
                             ForEach(datas.sounds) { sound in
                                 
                                 HStack  {
-                                   /* Image(systemName: sound.image)
+                                    Image(systemName: sound.image)
                                         .resizable()
                                         .aspectRatio(contentMode: .fit)
                                         .frame(height: 40)
                                         .foregroundStyle(sound.color)
-                                        .padding(.trailing) */
+                                        .padding(.trailing)
                                     
-                                        HStack {
-                                            
-                                            bar (low:0.4, sound: sound)
-                                                .animation(play ? animation.speed(1.0) : nil, value: play)
-                                            bar (low:0.3, sound: sound)
-                                                .animation(play ? animation.speed(1.3) : nil, value: play)
-                                            bar (low:0.7, sound: sound)
-                                                .animation(play ? animation.speed(0.9) : nil, value: play)
-                                            bar (low:0.5, sound: sound)
-                                                .animation(play ? animation.speed(1.5) : nil, value: play)
+                                    
                                             
                                             
-                                        } .frame(width:40)
-                                            .offset(x:-10)
                                     
                                     
                                     VStack (alignment: .leading)
@@ -126,6 +115,14 @@ struct LibraryView: View {
                                             .fontWeight(.light)
                                             .foregroundStyle(.gray)
                                     }
+                                    
+                                    
+                                    if (sound.isPlaying==true) {
+                                        
+                                        
+                                        
+                                    }
+                                    
                                 }
                                 .onTapGesture {
                                     
@@ -190,6 +187,7 @@ struct LibraryView: View {
                                 .frame(width: 30)
                                 .foregroundStyle(record ? Color.red : datas.color)
                                 .scaleEffect(record ? 1.2 : 1.0)
+                                .animation (.default, value:record)
                       
                             
                         }).padding(.horizontal, 20)
