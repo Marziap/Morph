@@ -11,6 +11,8 @@ import SwiftUI
 struct MixingView: View {
     @State private var showModal = false
     @State private var showingAlert = false
+    @State private var play = false
+    @State private var paused = false
     @Environment(Datas.self) private var datas
     @State private var name = ""
     @State private var tags = ""
@@ -36,6 +38,10 @@ struct MixingView: View {
             
             await wait(seconds: duration)
         }
+        
+        play=true
+        paused=false
+        
     }
     
     var body: some View {
@@ -45,17 +51,45 @@ struct MixingView: View {
                     
                     if(!datas.mixSounds.isEmpty){
                         Button(action: {
-                            Task {
-                                await playSoundsSequentially(musicRecording: musicRecording, sounds: datas.mixSounds)
+                            
+                            play.toggle()
+                            
+                            if(play==true){
+                                
+                                if(paused==true){
+                                    paused=false
+                                    musicRecording.audioPlayer.play()
+                                }else{
+                                    Task {
+                                        await playSoundsSequentially(musicRecording: musicRecording, sounds: datas.mixSounds)
+                                    }
+                                }
+                            }else{
+                                musicRecording.audioPlayer.pause()
+                                paused=true
                             }
                             
+                            
                         }, label: {
-                            Image(systemName: "play")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 30)
-                                .foregroundColor(datas.color)
-                                .padding(.horizontal)
+                            
+                            if(paused == true){
+                                Image(systemName: "pause")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(height: 30)
+                                    .foregroundColor(datas.color)
+                                    .padding(.horizontal)
+                            }else{
+                                Image(systemName: "play")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 30)
+                                    .foregroundColor(datas.color)
+                                    .padding(.horizontal)
+                            }
+                            
+                            
+                            
                         }).padding(.vertical)
                         
                     }
