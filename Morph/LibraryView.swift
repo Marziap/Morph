@@ -21,6 +21,9 @@ struct LibraryView: View {
     var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @Environment(\.dismiss) private var dismiss
     var musicRecording = VoiceViewModel ()
+    @State private var play = false
+
+    
     var animation: Animation {
         return .linear(duration: 0.5).repeatForever()
     }
@@ -90,28 +93,28 @@ struct LibraryView: View {
                             ForEach(datas.sounds) { sound in
                                 
                                 HStack  {
-                                    Image(systemName: sound.image)
+                                   /* Image(systemName: sound.image)
                                         .resizable()
                                         .aspectRatio(contentMode: .fit)
                                         .frame(height: 40)
                                         .foregroundStyle(sound.color)
-                                        .padding(.trailing) 
+                                        .padding(.trailing) */
                                     
-                                  /*  HStack {
-                                        
-                                        bar (low:0.4)
-                                            .animation(animation.speed(1.4), value: musicRecording.audioPlayer.isPlaying)
-                                        bar (low:0.3)
-                                            .animation(animation.speed(1.2), value: musicRecording.audioPlayer.isPlaying)
-                                        bar (low:0.7)
-                                            .animation(animation.speed(1.0), value: musicRecording.audioPlayer.isPlaying)
-                                        bar (low:0.5)
-                                            .animation(animation.speed(1.5), value: musicRecording.audioPlayer.isPlaying)
-                                        
-                                        
-                                    } .frame(width:40)
-                                        .offset(x:-10) */
-                                        
+                                        HStack {
+                                            
+                                            bar (low:0.4, sound: sound)
+                                                .animation(play ? animation.speed(1.0) : nil, value: play)
+                                            bar (low:0.3, sound: sound)
+                                                .animation(play ? animation.speed(1.3) : nil, value: play)
+                                            bar (low:0.7, sound: sound)
+                                                .animation(play ? animation.speed(0.9) : nil, value: play)
+                                            bar (low:0.5, sound: sound)
+                                                .animation(play ? animation.speed(1.5) : nil, value: play)
+                                            
+                                            
+                                        } .frame(width:40)
+                                            .offset(x:-10)
+                                    
                                     
                                     VStack (alignment: .leading)
                                     {
@@ -125,7 +128,17 @@ struct LibraryView: View {
                                     }
                                 }
                                 .onTapGesture {
-                                    musicRecording.startPlaying(url: sound.fileURL)
+                                    
+                                    sound.isPlaying.toggle()
+                                    play=sound.isPlaying
+                                    print("play: \(play)")
+                                    
+                                    if(sound.isPlaying==true){
+                                        musicRecording.startPlaying(url: sound.fileURL)
+                                        
+                                    }else{
+                                        musicRecording.stopPlaying(url: sound.fileURL)
+                                    }
                                 }
                                 .swipeActions (edge:.trailing, allowsFullSwipe: true) {
                                     
@@ -297,11 +310,11 @@ struct LibraryView: View {
             
     }
     
-   /* func bar(low: CGFloat = 0.0, high: CGFloat = 1.0) -> some View {
+    func bar(low: CGFloat = 0.0, high: CGFloat = 1.0, sound: Sound) -> some View {
         RoundedRectangle(cornerRadius: 3)
-            .fill(.indigo.gradient)
-            .frame(height: (musicRecording.audioPlayer.isPlaying ? high : low) * 40)
+            .fill(sound.color)
+            .frame(height: (play ? high : low) * 40)
             .frame(height: 40, alignment: .center)
-    } */
+    }
     
 }
