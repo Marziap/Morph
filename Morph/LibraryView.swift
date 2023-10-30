@@ -164,6 +164,7 @@ struct LibraryView: View {
                                 musicRecording.startRecording()
                             } else {
                                 timeRemaining=0
+                                musicRecording.audioRecorder.pause()
                                 showPopUp=true
                             }
                             
