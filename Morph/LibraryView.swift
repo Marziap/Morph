@@ -93,26 +93,22 @@ struct LibraryView: View {
                             ForEach(datas.sounds) { sound in
                                 
                                 HStack  {
-                                    Image(systemName: sound.image)
+                                  Image(systemName: sound.image)
                                         .resizable()
                                         .aspectRatio(contentMode: .fit)
-                                        .frame(height: 40)
+                                        .frame(height: sound.isPlaying ? 50 : 40)
                                         .foregroundStyle(sound.color)
                                         .padding(.trailing)
-                                    
-                                    
-                                            
-                                            
-                                    
+                                
                                     
                                     VStack (alignment: .leading)
                                     {
                                         Text(sound.name)
                                             .font(.headline)
-                                            .fontWeight(.medium)
+                                            .fontWeight(sound.isPlaying ? .bold : .medium)
                                         Text(sound.tag)
                                             .font(.subheadline)
-                                            .fontWeight(.light)
+                                            .fontWeight(sound.isPlaying ? .bold : .light)
                                             .foregroundStyle(.gray)
                                     }
                                     
@@ -128,7 +124,6 @@ struct LibraryView: View {
                                     
                                     sound.isPlaying.toggle()
                                     play=sound.isPlaying
-                                    print("play: \(play)")
                                     
                                     if(sound.isPlaying==true){
                                         musicRecording.startPlaying(url: sound.fileURL)

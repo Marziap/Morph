@@ -16,12 +16,27 @@ struct MixingView: View {
     @State private var tags = ""
     @Environment(\.dismiss) private var dismiss
     var musicRecording = VoiceViewModel ()
+    let semaphore = DispatchSemaphore(value: 0)
     
     func move(from source: IndexSet, to destination: Int) {
         datas.mixSounds.move(fromOffsets: source, toOffset: destination)
     }
     // funktion for drag and drop
    
+    func wait(seconds: TimeInterval) async {
+        await Task.sleep(UInt64(seconds * TimeInterval(NSEC_PER_SEC)))
+    }
+
+    func playSoundsSequentially(musicRecording: VoiceViewModel, sounds: [Sound]) async {
+        for sound in sounds {
+            musicRecording.startPlaying(url: sound.fileURL)
+            
+            // Get the duration of the current sound
+            let duration = musicRecording.audioPlayer.duration
+            
+            await wait(seconds: duration)
+        }
+    }
     
     var body: some View {
         NavigationStack {
@@ -30,7 +45,10 @@ struct MixingView: View {
                     
                     if(!datas.mixSounds.isEmpty){
                         Button(action: {
-
+                            Task {
+                                await playSoundsSequentially(musicRecording: musicRecording, sounds: datas.mixSounds)
+                            }
+                            
                         }, label: {
                             Image(systemName: "play")
                                 .resizable()
