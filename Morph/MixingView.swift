@@ -12,6 +12,7 @@ struct MixingView: View {
     @State private var showModal = false
     @State private var showingAlert = false
     @State private var play = false
+    @State private var isFirstTime = false
     @State private var paused = false
     @Environment(Datas.self) private var datas
     @State private var name = ""
@@ -41,6 +42,7 @@ struct MixingView: View {
         
         play=true
         paused=false
+        isFirstTime=true
         
     }
     
@@ -51,46 +53,41 @@ struct MixingView: View {
                     
                     if(!datas.mixSounds.isEmpty){
                         Button(action: {
-                            
-                            play.toggle()
-                            
-                            if(play==true){
-                                
-                                if(paused==true){
-                                    paused=false
-                                    musicRecording.audioPlayer.play()
-                                }else{
-                                    Task {
-                                        await playSoundsSequentially(musicRecording: musicRecording, sounds: datas.mixSounds)
-                                    }
-                                }
-                            }else{
-                                musicRecording.audioPlayer.pause()
-                                paused=true
-                            }
-                            
-                            
-                        }, label: {
-                            
-                            if(paused == true){
-                                Image(systemName: "pause")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(height: 30)
-                                    .foregroundColor(datas.color)
-                                    .padding(.horizontal)
-                            }else{
-                                Image(systemName: "play")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 30)
-                                    .foregroundColor(datas.color)
-                                    .padding(.horizontal)
-                            }
-                            
-                            
-                            
-                        }).padding(.vertical)
+//                               play.toggle()
+//
+//                               if play == false {
+//                                   if paused == false {
+//                                       paused = true
+//                                       musicRecording.audioPlayer.pause()
+//                                   } else {
+//                                       musicRecording.audioPlayer.play()
+//                                       paused = false
+//                                   }
+//                               } else {
+//                                   // Play sounds sequentially only if it's the first time
+//                                   if isFirstTime {
+                                       Task {
+                                           await playSoundsSequentially(musicRecording: musicRecording, sounds: datas.mixSounds)
+                                       }
+//                                   }
+//                               }
+                           }, label: {
+                               if paused == false {
+                                   Image(systemName: "play")
+                                       .resizable()
+                                       .aspectRatio(contentMode: .fit)
+                                       .frame(width: 30)
+                                       .foregroundColor(datas.color)
+                                       .padding(.horizontal)
+                               } else {
+                                   Image(systemName: "pause")
+                                       .resizable()
+                                       .aspectRatio(contentMode: .fit)
+                                       .frame(height: 30)
+                                       .foregroundColor(datas.color)
+                                       .padding(.horizontal)
+                               }
+                           }).padding(.vertical)
                         
                     }
                     
